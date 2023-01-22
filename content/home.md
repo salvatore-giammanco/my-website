@@ -4,8 +4,8 @@ slug = "home"
 +++
 # Ahoy Matey! 🏴‍☠️
 
-My name is **Salvatore Giammanco** and I am a Software Developer currently working for Flowe as Software Engineer. 
-Im' currently learning Rust programming language and i love it! I also love playing around with microcontrollers like Arduino and getting hands dirty since i was 14 years old.
+My name is **Salvatore Giammanco** and I am a **Software Developer** currently working for Flowe as Software Engineer. 
+Im' currently learning **Rust** programming language and i love it! I also love playing around with **microcontrollers** like Arduino and getting hands dirty since i was 14 years old.
 
 # What’s my Mission?
 
