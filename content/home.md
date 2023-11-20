@@ -5,7 +5,7 @@ slug = "home"
 # Ahoy Matey! 🏴‍☠️
 
 My name is **Salvatore Giammanco** and I am a **Software Developer** currently working for 🐙 Kraken Technologies 🐙 as Software Engineer. 
-Im' currently learning **Rust** programming language and I love it! I also love playing around with **microcontrollers** like Arduino and getting hands dirty since I was 14 years old.
+I'm currently learning **Rust** programming language and I love it! I also love playing around with **microcontrollers** like Arduino and getting hands dirty since I was 14 years old.
 
 # What’s my Mission?
 
