@@ -14,6 +14,7 @@ I want to create technology, innovation and hope for a better future. We need su
 Our society should work like an ecosystem, in symbiosis with nature.
 
 # More about myself
+- 🌶️ Neurospicy
 - ⚛️ No religion
 - 🏳️‍🌈 Love is Love
 - 🌏 Freedom
@@ -21,9 +22,8 @@ Our society should work like an ecosystem, in symbiosis with nature.
 - ❤️‍🔥 Married
 
 # What I do on my spare time
-- 💻 Study Rust language and Computer Science
+- 💻 Study Rust and code Emulators
 - 🌲 Go out in the Nature
-- 🚴 Do sports
+- 🚑 Volunteer as an EMT
 - ✈️ Travel, hike and trek
 - 📷 Take pictures and shoot videos
-                            
