@@ -1,0 +1,5 @@
+services:
+  my-website:
+    build: ~Workspace/personal/my-website/
+    ports:
+      - 8000:80

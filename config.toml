@@ -25,12 +25,15 @@ menu_items = [
     # $BASE_URL is going to be substituted by base_url from configuration
     {name = "home", url = "$BASE_URL"},
     {name = "blog", url = "$BASE_URL/blog"},
+    {name = "tech blog", url = "$BASE_URL/techblog"},
+    {name = "tech talks", url = "$BASE_URL/techtalks"},
     {name = "projects", url = "$BASE_URL/projects"},
+    
     
     # tags should only be enabled if you have "tags" taxonomy
     # see documentation below for more details
     #{name = "tags", url = "$BASE_URL/tags"},
-    {name = "contact me", url = "$BASE_URL/content/contact-me"},
+    {name = "contacts", url = "$BASE_URL/content/contact-me"},
     
     # set newtab to true to make the link open in new tab
     {name = "github", url = "https://github.com/salvatore-giammanco", newtab = true},

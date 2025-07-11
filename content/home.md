@@ -22,7 +22,7 @@ Our society should work like an ecosystem, in symbiosis with nature.
 - ❤️‍🔥 Married
 
 # What I do on my spare time
-- 💻 Study Rust and code Emulators
+- 💻 Tinker with Rust, Emulators, Micro-controllers and more
 - 🌲 Go out in the Nature
 - 🚑 Volunteer as an EMT
 - ✈️ Travel, hike and trek
