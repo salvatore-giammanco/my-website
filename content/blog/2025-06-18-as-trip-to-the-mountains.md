@@ -1,6 +1,6 @@
 ---
 title: A trip to the mountains
-description: Had a week of total relax
+description: Week 2
 date: 2025-06-18
 ---
 
