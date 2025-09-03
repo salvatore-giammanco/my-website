@@ -1,7 +1,7 @@
 ---
 title: A rainy day
 description: Week 3
-date: 2025-06-26
+date: 2025-07-26
 ---
 
 Last week and last weekend I really managed to relax, so i thought this week would be a productive one. And indeed it started like that, at work I used the excuse that I had to catch up from the holidays to burn down my entire list of saved messages on slack: it was over 80 threads and it took me slightly more than two days. Two full days of focus on burning down that list. Monday and Tuesday. After that, focus started to fade out until Thursday in which I did not accomplish absolutely anything.  Fucking ADHD, sometimes I wonder if meds would help, but I cannot swallow pills anyway.

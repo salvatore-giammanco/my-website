@@ -1,7 +1,7 @@
 ---
 title: A trip to the mountains
 description: Week 2
-date: 2025-06-18
+date: 2025-07-18
 ---
 
 Here we are at the second post of this blog, it's Friday and yes, I almost forgot about it.
