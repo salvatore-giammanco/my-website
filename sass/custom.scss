@@ -718,6 +718,30 @@ hr {
   color: var(--accent);
 }
 
+.copy-toast {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--accent);
+  color: var(--bg);
+  font-family: VT323, Hack, monospace;
+  font-size: 1.4rem;
+  padding: 10px 28px;
+  border-radius: 4px;
+  z-index: 9999;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  letter-spacing: 1px;
+  box-shadow: 0 0 20px rgba(255, 0, 127, 0.4);
+}
+
+.copy-toast--show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 .sparkle {
   position: fixed;
   pointer-events: none;
