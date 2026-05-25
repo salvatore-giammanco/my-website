@@ -89,6 +89,10 @@
   }
 }
 
+html {
+  background: var(--bg);
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
