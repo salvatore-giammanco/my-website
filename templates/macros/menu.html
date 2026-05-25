@@ -1,0 +1,46 @@
+{% macro menu(config, current_path) %}
+    {%- if config.extra.menu_items %}
+        {%- set menu_items = config.extra.menu_items %}
+        {%- set_global current_item = false %}
+
+        {%- for item in menu_items %}
+            {%- set item_url = item.url | replace(from="$BASE_URL", to="") %}
+            {%- set is_current = current_path == item_url ~ "/"
+                                 or (current_path != "/" and current_path is starting_with(item_url))
+            -%}
+            {%- set is_home = item_url == "/" or item_url == "" %}
+            {%- if is_current and not is_home %}
+                {%- set_global current_item = item %}
+            {%- endif %}
+            {%- if is_home %}
+                {%- set_global base_item = item %}
+            {%- endif %}
+        {%- endfor %}
+
+        {%- if not current_item and base_item %}
+            {%- set_global current_item = base_item %}
+        {%- endif %}
+
+        {{ menu_macros::menu_for(config=config, current_item=current_item) }}
+    {% endif -%}
+{% endmacro menu %}
+
+{% macro menu_for(config, current_item) %}
+    {%- if config.extra.menu_items %}
+        {%- set menu_items = config.extra.menu_items %}
+
+        <nav class="menu">
+            <ul class="menu__inner">
+            {%- for item in menu_items %}
+                <li {%- if current_item and current_item == item %} class="active" {%- endif %}>
+                    {%- if item.newtab -%}
+                        <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) | safe }}" target="_blank" rel="noopener noreferrer">{{ item.name | safe }}</a>
+                    {%- else -%}
+                        <a href="{{ item.url | replace(from="$BASE_URL", to="") | safe }}">{{ item.name | safe }}</a>
+                    {%- endif -%}
+                </li>
+            {%- endfor %}
+            </ul>
+        </nav>
+    {% endif -%}
+{% endmacro menu %}

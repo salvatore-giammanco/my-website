@@ -11,7 +11,7 @@
     {{ head_macros::head(config=config) }}
 
     {%- if config.generate_rss %}
-        <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml") | safe }}">
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml">
     {% endif -%}
 
     {%- if config.extra.favicon %}
@@ -34,12 +34,7 @@
     <header class="header">
         <div class="header__inner">
             <div class="header__logo">
-                {%- if config.logo_home_link %}
-                    {% set logo_link = config.logo_home_link %}
-                {% else %}
-                    {% set logo_link = config.base_url %}
-                {% endif -%}
-                <a href="{{ logo_link | safe }}">
+                <a href="/">
                     <div class="logo">
                       {% block logo_content %}
                         {%- if config.extra.logo_text %}

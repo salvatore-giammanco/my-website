@@ -16,11 +16,11 @@ title = "Salvatore Giammanco"
 author = "Salvatore Giammanco"
 logo_text = "Salvatore Giammanco"
 menu_items = [
-    {name = "home", url = "$BASE_URL"},
-    {name = "blog", url = "$BASE_URL/blog"},
-    {name = "tech blog", url = "$BASE_URL/techblog"},
-    {name = "tech talks", url = "$BASE_URL/techtalks"},
-    {name = "projects", url = "$BASE_URL/projects"},
-    {name = "contacts", url = "$BASE_URL/content/contact-me"},
+    {name = "home", url = "/"},
+    {name = "blog", url = "/blog"},
+    {name = "tech blog", url = "/techblog"},
+    {name = "tech talks", url = "/techtalks"},
+    {name = "projects", url = "/projects"},
+    {name = "contacts", url = "/content/contact-me"},
     {name = "github", url = "https://github.com/salvatore-giammanco", newtab = true},
 ]
