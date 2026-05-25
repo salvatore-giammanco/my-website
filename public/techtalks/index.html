@@ -1,26 +1,30 @@
-{% import "macros/date.html" as date_macros -%}
-{% import "macros/head.html" as head_macros -%}
-{% import "macros/menu.html" as menu_macros -%}
-{% import "macros/post.html" as post_macros -%}
-
 <!DOCTYPE html>
-<html lang="{%- if config.default_language -%}{{ config.default_language }}{%- else -%}en{%- endif -%}">
+<html lang="en">
 
 <head>
-    <title>{%- block title %}{{ config.title }}{% endblock title -%}</title>
-    {{ head_macros::head(config=config) }}
+    <title>Salvatore Giammanco</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
 
-    {%- if config.generate_rss %}
-        <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml">
-    {% endif -%}
+    <style>
+      #boot-screen {
+        position: fixed; top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: #1a1b26; z-index: 9999;
+        display: flex; align-items: center;
+        justify-content: center; cursor: default;
+      }
+      .boot-line { opacity: 0; }
+      .boot-line.boot--visible { opacity: 1; }
+    </style>
 
-    {%- if config.extra.favicon %}
-        <link rel="shortcut icon" type="{{ config.extra.favicon_mimetype | default(value="image/x-icon") }}" href="{{ config.extra.favicon | safe }}">
-    {% endif -%}
+    <link rel="stylesheet" href="/custom.css">
 
-    {%- block extra_head %}
-    {% endblock extra_head -%}
-</head>
+<link rel="icon" type="image/x-icon" href="/favicon.png">
+
+    </head>
 
 <body>
 
@@ -30,86 +34,90 @@
 
 <div class="page">
 
-    {% block header %}
+    
     <header class="header">
         <div class="header__inner">
             <div class="header__logo">
                 <a href="/">
                     <div class="logo">
-                      {% block logo_content %}
-                        {%- if config.extra.logo_text %}
-                            {{ config.extra.logo_text }}
-                        {% else %}
-                            Terminimal theme
-                        {% endif -%}
-                        {% endblock logo_content %}
+                      
+                            Salvatore Giammanco
+                        
                     </div>
                 </a>
             </div>
 
-            {% block header_menu %}
-            {{ menu_macros::menu(config=config, current_path=current_path) }}
-            {% endblock header_menu %}
+            
+            
+
+        
+
+        <nav class="menu">
+            <ul class="menu__inner">
+                <li><a href="/">home</a></li>
+                <li><a href="/blog">blog</a></li>
+                <li><a href="/techblog">tech blog</a></li>
+                <li class="active"><a href="/techtalks">tech talks</a></li>
+                <li><a href="/projects">projects</a></li>
+                <li><a href="/content/contact-me">contacts</a></li>
+                <li><a href="https://github.com/salvatore-giammanco" target="_blank" rel="noopener noreferrer">github</a></li>
+            </ul>
+        </nav>
+    
+    
+            
         </div>
     </header>
-    {% endblock header %}
+    
 
     <div class="content">
-        {% block content %}
+        
         <div class="posts">
-            {%- if paginator %}
-                {%- set show_pages = paginator.pages -%}
-            {% else %}
-                {%- set show_pages = section.pages -%}
-            {% endif -%}
-
-            {%- for page in show_pages %}
                 <div class="post on-list">
-                    {{ post_macros::header(page=page) }}
-                    {{ post_macros::content(page=page, summary=true) }}
-                </div>
-            {% endfor -%}
-            <div class="pagination">
-                <div class="pagination__buttons">
-                {%- if paginator.previous %}
-                    <span class="button previous">
-                        <a href="{{ paginator.previous | safe }}">
-                            <span class="button__icon">←</span>&nbsp;
-                            <span class="button__text">Newer posts</span>
-                        </a>
-                    </span>
-                {% endif -%}
-                {%- if paginator.next %}
-                    <span class="button next">
-                        <a href="{{ paginator.next | safe }}">
-                            <span class="button__text">Older posts</span>&nbsp;
-                            <span class="button__icon">→</span>
-                        </a>
-                    </span>
-                {% endif -%}
-                </div>
-            </div>
-        </div>
-        {% endblock content %}
+                    
+    <h1 class="post-title"><a href="https://giammanco.me/techtalks/under-the-hood-of-python-data-structures/">Under the Hood of Python&#x27;s data structures</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2025-05-29
+        </span>
+
     </div>
 
-    {% block footer %}
+    
+
+                    <div class="post-content">
+            <p>At PyConIT25 I spoke breafly about how some python data structures are implemented in CPython.
+If you want to see me rumbling about that, here&#x27;s the video.
+</p>
+        </div>
+        <div>
+            <a class="read-more button" href="https://giammanco.me/techtalks/under-the-hood-of-python-data-structures/">
+                <span class="button__text">Read more</span>&nbsp;
+                <span class="button__icon">&#8617;&#xFE0E;</span>
+            </a>
+        </div>
+    
+
+                </div>
+            <div class="pagination">
+                <div class="pagination__buttons"></div>
+            </div>
+        </div>
+        
+    </div>
+
+    
     <footer class="footer">
         <div class="footer__inner">
-            {%- if config.extra.copyright_html %}
-                <div class="copyright copyright--user">{{ config.extra.copyright_html | safe }}</div>
-            {% else %}
                 <div class="copyright">
-                    {%- if config.extra.author %}
-                        <span>© {{ date_macros::now_year() }} {{ config.extra.author }}</span>
-                    {% else %}
-                        <span>© {{ date_macros::now_year() }} Powered by <a href="https://www.getzola.org/">Zola</a></span>
-                    {% endif -%}
-                </div>
-            {% endif -%}
-        </div>
+                        <span>© 
+    2026
+ Salvatore Giammanco</span>
+                    </div>
+            </div>
     </footer>
-    {% endblock footer %}
+    
 
 </div>
 

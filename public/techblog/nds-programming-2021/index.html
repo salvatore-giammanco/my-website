@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Salvatore Giammanco</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <style>
+      #boot-screen {
+        position: fixed; top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: #1a1b26; z-index: 9999;
+        display: flex; align-items: center;
+        justify-content: center; cursor: default;
+      }
+      .boot-line { opacity: 0; }
+      .boot-line.boot--visible { opacity: 1; }
+    </style>
+
+    <link rel="stylesheet" href="/custom.css">
+
+<link rel="icon" type="image/x-icon" href="/favicon.png">
+
+    </head>
+
+<body>
+
+<div id="boot-screen">
+  <div class="boot-content" id="boot-content"></div>
+</div>
+
+<div class="page">
+
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                <a href="/">
+                    <div class="logo">
+                      
+                            Salvatore Giammanco
+                        
+                    </div>
+                </a>
+            </div>
+
+            
+            
+
+        
+
+        <nav class="menu">
+            <ul class="menu__inner">
+                <li><a href="/">home</a></li>
+                <li><a href="/blog">blog</a></li>
+                <li class="active"><a href="/techblog">tech blog</a></li>
+                <li><a href="/techtalks">tech talks</a></li>
+                <li><a href="/projects">projects</a></li>
+                <li><a href="/content/contact-me">contacts</a></li>
+                <li><a href="https://github.com/salvatore-giammanco" target="_blank" rel="noopener noreferrer">github</a></li>
+            </ul>
+        </nav>
+    
+    
+            
+        </div>
+    </header>
+    
+
+    <div class="content">
+        
+    
+        <div class="post">
+            
+    <h1 class="post-title"><a href="https://giammanco.me/techblog/nds-programming-2021/">🇬🇧 How to make Nintendo DS games in 2021</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2021-06-12
+        </span>
+
+    </div>
+
+    
+
+            
+        <div class="post-content">
+            <p><em>In order to make a game for Nintendo DS, you should have some knowledge of <code>C</code> and <code>C++</code>.</em></p>
+<p>Before starting to code for our beloved Nintendo DS, we need some tools, like the right compiler (kindly provided by <a rel="external" href="https://devkitpro.org/">devkitPro</a>) and the right libraries.</p>
+<span id="continue-reading"></span><h2 id="step-1-download-and-install-devkitpro-pacman">Step 1. Download and install devkitPro pacman</h2>
+<p>First of all we need to download the devkitPro package manager. We will use it to download the devkitARM toolchain and Nintendo DS libraries.</p>
+<ul>
+<li>Linux: use this guide: <a rel="external" href="https://devkitpro.org/wiki/devkitPro_pacman">https://devkitpro.org/wiki/devkitPro_pacman</a></li>
+<li>Windows: <a rel="external" href="https://github.com/devkitPro/installer/releases">https://github.com/devkitPro/installer/releases</a> ← take the latest version</li>
+<li>OSX: use the installer <a rel="external" href="https://github.com/devkitPro/pacman/releases">https://github.com/devkitPro/pacman/releases</a> ← take the latest version</li>
+</ul>
+<p>After you installed pacman, you'll need to set up the following environment variables:</p>
+<pre><code data-lang="bash">DEVKITPRO=/opt/devkitpro
+DEVKITARM=$DEVKITPRO/devkitARM
+PATH=$PATH:$DEVKITARM/bin
+</code></pre>
+<p><em>If you don't know how to do it, just google</em> <code>how to set environment variables on &lt;your OS&gt;</code>.</p>
+<h2 id="step-2-install-devkitarm-and-nds-libraries">Step 2. Install devkitARM and NDS libraries</h2>
+<p>It's time to open your terminal! Move to <code>/opt/devkitpro/pacman/bin</code>.</p>
+<pre><code data-lang="bash">cd /opt/devkitpro/pacman/bin
+</code></pre>
+<p>This command will do all the work:</p>
+<pre><code data-lang="bash">./pacman -Sl nds-dev
+</code></pre>
+<h2 id="step-3-emulate">Step 3. Emulate!</h2>
+<p>It's time to download an emulator, if you don't already have one. My personal suggestion is <a rel="external" href="http://melonds.kuribo64.net/downloads.php">melonDS</a>, it's a very complete emulator, with lots of settings and even some Wifi functions work on it.</p>
+<h2 id="step-4-compile">Step 4. Compile!</h2>
+<p>Luckly, in step 4 we installed a bunch of code examples together with the libraries. For making sure that everything works well, let's start with the <code>hello_world</code> example.</p>
+<p>Now move into <code>/opt/devkitpro/examples/nds/hello_world</code> with your terminal.</p>
+<pre><code data-lang="bash">cd  /opt/devkitpro/examples/nds/hello_world
+</code></pre>
+<p>You can rather work directly in this directory, or copy it somwhere else.</p>
+<p>Let's compile, type the following command:</p>
+<pre><code data-lang="bash">make
+</code></pre>
+<p>If you get an error like <code>Permission denied</code>, type this:</p>
+<pre><code data-lang="bash">cd ..
+sudo chmod 777 hello_world
+cd hello_world
+make
+</code></pre>
+<h2 id="set-4-run">Set 4. Run!</h2>
+<p>Now, if everything went well, in your <code>hello_world</code> directory there's a <code>hello_world.nds</code> file. Open this with your emulator, and you're done!</p>
+<p><img src="../img/nds/hello_world.png" alt="Hello world" /></p>
+<h2 id="step-5-have-fun">Step 5. Have fun!</h2>
+<p>Now you can code your personal Nintendo DS game. Here's the documentation of <code>libnds</code>, it will be useful: <a rel="external" href="https://libnds.devkitpro.org/">https://libnds.devkitpro.org/</a>.
+Feel free to open <code>source/main.cpp</code> file and make some experiments! If yu don't have any C++ IDE, i suggest CLion by JetBrains, or if you don't want to pay (or you're not at university) you can youse Visual Studio Code.</p>
+<h2 id="issues">Issues</h2>
+<p>If you encountered problems following this guide (especially during step 1 on windows) you can refer to this guide: <a rel="external" href="https://devkitpro.org/wiki/devkitPro_pacman">https://devkitpro.org/wiki/devkitPro_pacman</a></p>
+<p>Otherwise just send me an e-mail at <code>salvatore@giammanco.me</code>, and i will try my best to help you.</p>
+<h2 id="buy-me-a-beer">Buy me a beer</h2>
+<p>If you enjoyed the article, and wish to buy me a beer, tip me at the following <code>bitcoin</code> address: <code>3CG6P8mpfk5d5DZ9psVDBesyAii3BC5pkS</code>.</p>
+<p>If you don't use bitcoin yet, you can tip me here: <a rel="external" href="https://www.buymeacoffee.com/firec00l">https://www.buymeacoffee.com/firec00l</a></p>
+
+        </div>
+
+            
+        </div>
+    
+
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright">
+                        <span>© 
+    2026
+ Salvatore Giammanco</span>
+                    </div>
+            </div>
+    </footer>
+    
+
+</div>
+
+<script>
+(function() {
+  var bootScreen = document.getElementById('boot-screen');
+  var bootContent = document.getElementById('boot-content');
+
+  if (!bootScreen || sessionStorage.getItem('booted')) {
+    if (bootScreen) bootScreen.style.display = 'none';
+    initSparkles();
+    return;
+  }
+
+  var lines = [
+    { text: '> INITIALIZING SYSTEM...', cls: '', delay: 200 },
+    { text: '', cls: '', delay: 100 },
+    { text: '  [  OK  ] Kernel loaded at 0x00007ffeefbff5e0', cls: 'boot-ok', delay: 120 },
+    { text: '  [  OK  ] Memory: 64KB free', cls: 'boot-ok', delay: 100 },
+    { text: '  [  OK  ] CPU: Neurospicy(TM) @ 3.6GHz', cls: 'boot-ok', delay: 110 },
+    { text: '  [  OK  ] Display server: UNKNOWN', cls: 'boot-ok', delay: 130 },
+    { text: '  [  OK  ] Network: ESTABLISHED (42.0 bps)', cls: 'boot-ok', delay: 100 },
+    { text: '  [ WARN ] Firewall: DISABLED', cls: 'boot-warn', delay: 150 },
+    { text: '', cls: '', delay: 80 },
+    { text: '> Welcome, Guest.', cls: '', delay: 200 },
+    { text: '> System ready.', cls: '', delay: 150 },
+    { text: '>', cls: 'boot-cursor', delay: 100 }
+  ];
+
+  var lineEls = [];
+  var totalDelay = 0;
+
+  lines.forEach(function(line) {
+    var el = document.createElement('div');
+    el.className = 'boot-line' + (line.cls ? ' ' + line.cls : '');
+    el.textContent = line.text;
+    bootContent.appendChild(el);
+    lineEls.push({ el: el, delay: totalDelay });
+    totalDelay += line.delay;
+  });
+
+  lineEls.forEach(function(item) {
+    setTimeout(function() {
+      item.el.classList.add('boot--visible');
+    }, item.delay);
+  });
+
+  var bootTime = totalDelay + 800;
+
+  setTimeout(function() {
+    bootScreen.classList.add('boot--done');
+    sessionStorage.setItem('booted', '1');
+    setTimeout(function() {
+      bootScreen.style.display = 'none';
+    }, 600);
+    initSparkles();
+  }, bootTime);
+})();
+
+function initSparkles() {
+  var chars = ['✦', '✧', '·', '⚡', '+', '♦'];
+  var lastTime = 0;
+
+  document.addEventListener('mousemove', function(e) {
+    var now = Date.now();
+    if (now - lastTime < 80) return;
+    lastTime = now;
+
+    var sparkle = document.createElement('div');
+    sparkle.className = 'sparkle';
+    sparkle.textContent = chars[Math.floor(Math.random() * chars.length)];
+    sparkle.style.left = (e.clientX - 5) + 'px';
+    sparkle.style.top = (e.clientY - 5) + 'px';
+    sparkle.style.color = ['#ff007f', '#00d4ff', '#ffd700', '#00ff87'][Math.floor(Math.random() * 4)];
+    sparkle.style.setProperty('--dx', (Math.random() * 30 - 15) + 'px');
+    sparkle.style.setProperty('--dy', (Math.random() * -30 - 10) + 'px');
+    document.body.appendChild(sparkle);
+
+    setTimeout(function() { sparkle.remove(); }, 600);
+  });
+}
+</script>
+
+
+<script>
+(function() {
+  var link = document.querySelector('a[href^="mailto:"]');
+  if (!link) return;
+  var email = link.getAttribute('href').replace('mailto:', '');
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    navigator.clipboard.writeText(email).then(function() {
+      var toast = document.createElement('div');
+      toast.className = 'copy-toast';
+      toast.textContent = '✧ copied! ✧';
+      document.body.appendChild(toast);
+      requestAnimationFrame(function() {
+        toast.classList.add('copy-toast--show');
+      });
+      setTimeout(function() {
+        toast.classList.remove('copy-toast--show');
+        setTimeout(function() { toast.remove(); }, 300);
+      }, 1400);
+    });
+  });
+})();
+</script>
+
+
+</body>
+
+</html>

@@ -10,31 +10,17 @@ build_search_index = true
 theme = "zola-theme-terminimal"
 title = "Salvatore Giammanco"
 
-[markdown]
-# Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
-highlight_code = true
+
 
 [extra]
-# Put all your custom variables here
-#favicon_href = "https://cdn-icons-png.flaticon.com/128/2917/2917995.png"
-accent_color = "pink"
+author = "Salvatore Giammanco"
 logo_text = "Salvatore Giammanco"
 menu_items = [
-    # each of these is optional, name and url are required
-    # $BASE_URL is going to be substituted by base_url from configuration
-    {name = "home", url = "$BASE_URL"},
-    {name = "blog", url = "$BASE_URL/blog"},
-    {name = "tech blog", url = "$BASE_URL/techblog"},
-    {name = "tech talks", url = "$BASE_URL/techtalks"},
-    {name = "projects", url = "$BASE_URL/projects"},
-    
-    
-    # tags should only be enabled if you have "tags" taxonomy
-    # see documentation below for more details
-    #{name = "tags", url = "$BASE_URL/tags"},
-    {name = "contacts", url = "$BASE_URL/content/contact-me"},
-    
-    # set newtab to true to make the link open in new tab
+    {name = "home", url = "/"},
+    {name = "blog", url = "/blog"},
+    {name = "tech blog", url = "/techblog"},
+    {name = "tech talks", url = "/techtalks"},
+    {name = "projects", url = "/projects"},
+    {name = "contacts", url = "/content/contact-me"},
     {name = "github", url = "https://github.com/salvatore-giammanco", newtab = true},
 ]

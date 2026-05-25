@@ -24,6 +24,5 @@ Our society should work like an ecosystem, in symbiosis with nature.
 # What I do on my spare time
 - 💻 Tinker with Rust, Emulators, Micro-controllers and more
 - 🌲 Go out in the Nature
-- 🚑 Volunteer as an EMT
 - ✈️ Travel, hike and trek
 - 📷 Take pictures and shoot videos

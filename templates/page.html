@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+
+{% block content %}
+    {% if page.extra and page.extra.hide_title %}
+        {{ post_macros::content(page=page, summary=false) }}
+    {% else %}
+        <div class="post">
+            {{ post_macros::header(page=page) }}
+            {{ post_macros::content(page=page, summary=false) }}
+            {{ post_macros::earlier_later(page=page) }}
+        </div>
+    {% endif %}
+{% endblock content %}
+
+{% block extra_scripts %}
+<script>
+(function() {
+  var link = document.querySelector('a[href^="mailto:"]');
+  if (!link) return;
+  var email = link.getAttribute('href').replace('mailto:', '');
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    navigator.clipboard.writeText(email).then(function() {
+      var toast = document.createElement('div');
+      toast.className = 'copy-toast';
+      toast.textContent = '✧ copied! ✧';
+      document.body.appendChild(toast);
+      requestAnimationFrame(function() {
+        toast.classList.add('copy-toast--show');
+      });
+      setTimeout(function() {
+        toast.classList.remove('copy-toast--show');
+        setTimeout(function() { toast.remove(); }, 300);
+      }, 1400);
+    });
+  });
+})();
+</script>
+{% endblock extra_scripts %}

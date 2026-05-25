@@ -3,25 +3,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <meta name="robots" content="noodp"/>
 
-    <link rel="stylesheet" href="{{ get_url(path="style.css", trailing_slash=false) | safe }}">
+    <style>
+      #boot-screen {
+        position: fixed; top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: #1a1b26; z-index: 9999;
+        display: flex; align-items: center;
+        justify-content: center; cursor: default;
+      }
+      .boot-line { opacity: 0; }
+      .boot-line.boot--visible { opacity: 1; }
+    </style>
 
-{%- if config.extra.accent_color %}
-    <link rel="stylesheet" href="{{ get_url(path="color/" ~ config.extra.accent_color ~ ".css", trailing_slash=false) | safe }}">
-{% else %}
-    <link rel="stylesheet" href="{{ get_url(path="color/blue.css", trailing_slash=false) | safe }}">
-{% endif -%}
+    <link rel="stylesheet" href="/custom.css">
 
-{%- if config.extra.background_color %}
-    {%- if config.extra.accent_color and config.extra.background_color != config.extra.accent_color %}
-        <link rel="stylesheet" href="{{ get_url(path="color/background_" ~ config.extra.background_color ~ ".css", trailing_slash=false) | safe }}">
-    {% endif -%}
-{% endif -%}
-
-{%- if config.extra.use_full_hack_font %}
-    <link rel="stylesheet" href="{{ get_url(path="font-hack.css", trailing_slash=false) | safe }}">
-{% else %}
-    <link rel="stylesheet" href="{{ get_url(path="font-hack-subset.css", trailing_slash=false) | safe }}">
-{% endif -%}
-
-<link rel="icon" type="image/x-icon" href="{{ get_url(path="favicon.png", trailing_slash=false) | safe }}">
+<link rel="icon" type="image/x-icon" href="/favicon.png">
 {% endmacro head %}
