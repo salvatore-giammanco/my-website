@@ -16,6 +16,10 @@
 
 <body>
 
+<div id="boot-screen">
+  <div class="boot-content" id="boot-content"></div>
+</div>
+
 <div class="page">
 
     
@@ -99,6 +103,86 @@
     
 
 </div>
+
+<script>
+(function() {
+  var bootScreen = document.getElementById('boot-screen');
+  var bootContent = document.getElementById('boot-content');
+
+  if (!bootScreen || sessionStorage.getItem('booted')) {
+    if (bootScreen) bootScreen.style.display = 'none';
+    initSparkles();
+    return;
+  }
+
+  var lines = [
+    { text: '> INITIALIZING SYSTEM...', cls: '', delay: 200 },
+    { text: '', cls: '', delay: 100 },
+    { text: '  [  OK  ] Kernel loaded at 0x00007ffeefbff5e0', cls: 'boot-ok', delay: 120 },
+    { text: '  [  OK  ] Memory: 64KB free', cls: 'boot-ok', delay: 100 },
+    { text: '  [  OK  ] CPU: Neurospicy(TM) @ 3.6GHz', cls: 'boot-ok', delay: 110 },
+    { text: '  [  OK  ] Display server: PHOSPHOR v2.0', cls: 'boot-ok', delay: 130 },
+    { text: '  [  OK  ] Network: ESTABLISHED (42.0 bps)', cls: 'boot-ok', delay: 100 },
+    { text: '  [ WARN ] Firewall: DISABLED', cls: 'boot-warn', delay: 150 },
+    { text: '', cls: '', delay: 80 },
+    { text: '> Welcome, Salvatore.', cls: '', delay: 200 },
+    { text: '> System ready.', cls: '', delay: 150 },
+    { text: '>', cls: 'boot-cursor', delay: 100 }
+  ];
+
+  var lineEls = [];
+  var totalDelay = 0;
+
+  lines.forEach(function(line) {
+    var el = document.createElement('div');
+    el.className = 'boot-line' + (line.cls ? ' ' + line.cls : '');
+    el.textContent = line.text;
+    bootContent.appendChild(el);
+    lineEls.push({ el: el, delay: totalDelay });
+    totalDelay += line.delay;
+  });
+
+  lineEls.forEach(function(item) {
+    setTimeout(function() {
+      item.el.classList.add('boot--visible');
+    }, item.delay);
+  });
+
+  var bootTime = totalDelay + 800;
+
+  setTimeout(function() {
+    bootScreen.classList.add('boot--done');
+    sessionStorage.setItem('booted', '1');
+    setTimeout(function() {
+      bootScreen.style.display = 'none';
+    }, 600);
+    initSparkles();
+  }, bootTime);
+})();
+
+function initSparkles() {
+  var chars = ['✦', '✧', '·', '⚡', '+', '♦'];
+  var lastTime = 0;
+
+  document.addEventListener('mousemove', function(e) {
+    var now = Date.now();
+    if (now - lastTime < 80) return;
+    lastTime = now;
+
+    var sparkle = document.createElement('div');
+    sparkle.className = 'sparkle';
+    sparkle.textContent = chars[Math.floor(Math.random() * chars.length)];
+    sparkle.style.left = (e.clientX - 5) + 'px';
+    sparkle.style.top = (e.clientY - 5) + 'px';
+    sparkle.style.color = ['#ff007f', '#00d4ff', '#ffd700', '#00ff87'][Math.floor(Math.random() * 4)];
+    sparkle.style.setProperty('--dx', (Math.random() * 30 - 15) + 'px');
+    sparkle.style.setProperty('--dy', (Math.random() * -30 - 10) + 'px');
+    document.body.appendChild(sparkle);
+
+    setTimeout(function() { sparkle.remove(); }, 600);
+  });
+}
+</script>
 
 </body>
 
