@@ -1,5 +1,8 @@
 +++
 title = "Contact me"
+
+[extra]
+hide_title = true
 +++
 # Email
 <a href="mailto:salvatore@giammanco.me">salvatore@giammanco.me</a>
