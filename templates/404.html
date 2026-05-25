@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block title %}
+404
+{% endblock title %}
+
+{% block header_menu %}
+{{ menu_macros::menu_for(config=config, current_item="") }}
+{% endblock header_menu %}
+
+{% block content %}
+<div class="post" style="text-align: center; margin-top: 80px;">
+  <div style="font-family: VT323, monospace; font-size: 4rem; color: var(--accent); margin: 0; line-height: 1; letter-spacing: 2px;">
+    > GAME OVER_
+  </div>
+  <div style="font-family: Hack, monospace; font-size: 0.9rem; color: var(--text-dim); margin: 20px 0;">
+    ERROR 404 — PAGE NOT FOUND
+  </div>
+  <div style="color: var(--text-muted); margin: 16px 0 32px; font-size: 0.8rem;">
+    > The requested URL does not exist.
+  </div>
+  <div>
+    <span class="button">
+      <a href="{{ config.base_url | safe }}" style="padding: 10px 24px;">
+        <span class="button__icon">←</span>
+        <span class="button__text">BACK TO START</span>
+      </a>
+    </span>
+  </div>
+</div>
+{% endblock content %}
