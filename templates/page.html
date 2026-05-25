@@ -1,13 +1,15 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <div class="post">
-        {% if not page.extra or not page.extra.hide_title %}
-            {{ post_macros::header(page=page) }}
-        {% endif %}
+    {% if page.extra and page.extra.hide_title %}
         {{ post_macros::content(page=page, summary=false) }}
-        {{ post_macros::earlier_later(page=page) }}
-    </div>
+    {% else %}
+        <div class="post">
+            {{ post_macros::header(page=page) }}
+            {{ post_macros::content(page=page, summary=false) }}
+            {{ post_macros::earlier_later(page=page) }}
+        </div>
+    {% endif %}
 {% endblock content %}
 
 {% block extra_scripts %}
