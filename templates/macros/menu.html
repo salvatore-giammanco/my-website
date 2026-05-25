@@ -2,18 +2,28 @@
     {%- if config.extra.menu_items %}
         {%- set menu_items = config.extra.menu_items %}
         {%- set_global current_item = false %}
+        {%- set_global base_item = false %}
 
         {%- for item in menu_items %}
             {%- set item_url = item.url | replace(from="$BASE_URL", to="") %}
-            {%- set is_current = current_path == item_url ~ "/"
-                                 or (current_path != "/" and current_path is starting_with(item_url))
-            -%}
             {%- set is_home = item_url == "/" or item_url == "" %}
-            {%- if is_current and not is_home %}
-                {%- set_global current_item = item %}
-            {%- endif %}
+
             {%- if is_home %}
                 {%- set_global base_item = item %}
+            {%- endif %}
+
+            {%- if current_path == item_url ~ "/" %}
+                {%- if is_home %}
+                    {# skip - homepage #}
+                {%- else %}
+                    {%- set_global current_item = item %}
+                {%- endif %}
+            {%- elif current_path is starting_with(item_url) %}
+                {%- if current_path == "/" %}
+                    {# skip - homepage #}
+                {%- else %}
+                    {%- set_global current_item = item %}
+                {%- endif %}
             {%- endif %}
         {%- endfor %}
 
