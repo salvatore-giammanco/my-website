@@ -471,6 +471,25 @@ ul li::before {
   margin-top: 0;
 }
 
+h1#email { color: var(--accent); }
+h1#linkedin { color: var(--cyan); }
+h1#telegram { color: var(--gold); }
+
+h1#email + p,
+h1#linkedin + p,
+h1#telegram + p {
+  font-size: 1.2rem;
+  margin: 4px 0 32px 24px;
+  padding-left: 16px;
+  border-left: 2px solid var(--line);
+}
+
+h1#email + p a,
+h1#linkedin + p a,
+h1#telegram + p a {
+  font-size: 1.1rem;
+}
+
 .post-cover {
   margin: 20px 0;
   padding: 16px;
