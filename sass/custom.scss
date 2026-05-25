@@ -471,9 +471,16 @@ ul li::before {
   margin-top: 0;
 }
 
-h1#email { color: var(--accent); }
-h1#linkedin { color: var(--cyan); }
-h1#telegram { color: var(--gold); }
+h1#email,
+h1#linkedin,
+h1#telegram {
+  background: linear-gradient(135deg, var(--accent), var(--cyan), var(--gold), var(--accent));
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: hue-shift 6s ease infinite;
+}
 
 h1#email + p,
 h1#linkedin + p,
@@ -481,13 +488,22 @@ h1#telegram + p {
   font-size: 1.2rem;
   margin: 4px 0 32px 24px;
   padding-left: 16px;
-  border-left: 2px solid var(--line);
+  border-left: 2px solid var(--accent);
 }
 
 h1#email + p a,
 h1#linkedin + p a,
 h1#telegram + p a {
   font-size: 1.1rem;
+  color: var(--accent);
+  transition: all 0.25s ease;
+}
+
+h1#email + p a:hover,
+h1#linkedin + p a:hover,
+h1#telegram + p a:hover {
+  color: var(--text);
+  text-shadow: 0 0 8px var(--accent);
 }
 
 .post-cover {
