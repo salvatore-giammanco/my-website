@@ -63,8 +63,9 @@
 
     <div class="content">
         
-    <div class="post">
-        
+    
+        <div class="post">
+            
     <h1 class="post-title"><a href="https://giammanco.me/blog/setback/">Setback</a></h1>
     <div class="post-meta-inline">
         
@@ -76,7 +77,7 @@
 
     
 
-        
+            
         <div class="post-content">
             <p>The week I was <em>looking forward to</em>, has passed, and I'm disappointed. Disappointed by myself, mostly. This time for myself was supposed to be dedicated to a healtier life-style, but it turned out to be the opposite. A big heat wave, my hateful neighbors, the fact that I had to take care of 3 animals besides myself, (I can barely take care of myself), all these things pushed me to consume a lot of junk food. The trend of sleeplessness continued, as well as the low-focus one.</p>
 <span id="continue-reading"></span>
@@ -88,8 +89,9 @@ I created a palace of happy memories  (actually, it's a work in progress). I rea
 
         </div>
 
-        
-    </div>
+            
+        </div>
+    
 
     </div>
 
@@ -186,6 +188,32 @@ function initSparkles() {
   });
 }
 </script>
+
+
+<script>
+(function() {
+  var link = document.querySelector('a[href^="mailto:"]');
+  if (!link) return;
+  var email = link.getAttribute('href').replace('mailto:', '');
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    navigator.clipboard.writeText(email).then(function() {
+      var toast = document.createElement('div');
+      toast.className = 'copy-toast';
+      toast.textContent = '✧ copied! ✧';
+      document.body.appendChild(toast);
+      requestAnimationFrame(function() {
+        toast.classList.add('copy-toast--show');
+      });
+      setTimeout(function() {
+        toast.classList.remove('copy-toast--show');
+        setTimeout(function() { toast.remove(); }, 300);
+      }, 1400);
+    });
+  });
+})();
+</script>
+
 
 </body>
 

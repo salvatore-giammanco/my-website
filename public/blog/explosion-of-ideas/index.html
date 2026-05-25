@@ -63,8 +63,9 @@
 
     <div class="content">
         
-    <div class="post">
-        
+    
+        <div class="post">
+            
     <h1 class="post-title"><a href="https://giammanco.me/blog/explosion-of-ideas/">Explosion of ideas</a></h1>
     <div class="post-meta-inline">
         
@@ -76,7 +77,7 @@
 
     
 
-        
+            
         <div class="post-content">
             <p>Yes, I'm cheating already. I'm writing this post from the future, but hey, this is my blog, so I do as I please.</p>
 <p>The only word that pops up to my mind when I think about last week is "rollecoaster". I haven't had this many ideas all at once in a long time, and I'm speaking about the ideas that keep me up till 5 in the morning.</p>
@@ -114,8 +115,9 @@ We also spoke about some projects we could go together, and here is where some i
 </script>
         </div>
 
-        
-    </div>
+            
+        </div>
+    
 
     </div>
 
@@ -212,6 +214,32 @@ function initSparkles() {
   });
 }
 </script>
+
+
+<script>
+(function() {
+  var link = document.querySelector('a[href^="mailto:"]');
+  if (!link) return;
+  var email = link.getAttribute('href').replace('mailto:', '');
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    navigator.clipboard.writeText(email).then(function() {
+      var toast = document.createElement('div');
+      toast.className = 'copy-toast';
+      toast.textContent = '✧ copied! ✧';
+      document.body.appendChild(toast);
+      requestAnimationFrame(function() {
+        toast.classList.add('copy-toast--show');
+      });
+      setTimeout(function() {
+        toast.classList.remove('copy-toast--show');
+        setTimeout(function() { toast.remove(); }, 300);
+      }, 1400);
+    });
+  });
+})();
+</script>
+
 
 </body>
 

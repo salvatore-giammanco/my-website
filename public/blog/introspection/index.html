@@ -63,8 +63,9 @@
 
     <div class="content">
         
-    <div class="post">
-        
+    
+        <div class="post">
+            
     <h1 class="post-title"><a href="https://giammanco.me/blog/introspection/">Introspection</a></h1>
     <div class="post-meta-inline">
         
@@ -76,7 +77,7 @@
 
     
 
-        
+            
         <div class="post-content">
             <p>Hello, I think that from now on I'm going to write on Sundays, so I can have a true summary of a full week.</p>
 <p>This week was the organic sequel of the previous one: I kept having ideas of projects and great desire of improving my lifestyle. I got into preparing healtier meals for myself, the problem is that it takes time and I'm always in lack of time. Last week I instaleld a self-hosted service that allows me to store my own recipes, and this week I had the chance to save a few ones. It's still a bit early to give opinions on the tool, but if you want to try that out, it's called <a rel="external" href="https://docs.tandoor.dev">Tandoor Recipes</a>.</p>
@@ -91,8 +92,9 @@ See you next week</p>
 
         </div>
 
-        
-    </div>
+            
+        </div>
+    
 
     </div>
 
@@ -189,6 +191,32 @@ function initSparkles() {
   });
 }
 </script>
+
+
+<script>
+(function() {
+  var link = document.querySelector('a[href^="mailto:"]');
+  if (!link) return;
+  var email = link.getAttribute('href').replace('mailto:', '');
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    navigator.clipboard.writeText(email).then(function() {
+      var toast = document.createElement('div');
+      toast.className = 'copy-toast';
+      toast.textContent = '✧ copied! ✧';
+      document.body.appendChild(toast);
+      requestAnimationFrame(function() {
+        toast.classList.add('copy-toast--show');
+      });
+      setTimeout(function() {
+        toast.classList.remove('copy-toast--show');
+        setTimeout(function() { toast.remove(); }, 300);
+      }, 1400);
+    });
+  });
+})();
+</script>
+
 
 </body>
 

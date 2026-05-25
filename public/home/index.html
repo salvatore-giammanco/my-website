@@ -64,8 +64,9 @@
 
     <div class="content">
         
-    <div class="post">
-        
+    
+        <div class="post">
+            
     <h1 class="post-title"><a href="https://giammanco.me/home/">Home</a></h1>
     <div class="post-meta-inline">
         
@@ -75,7 +76,7 @@
 
     
 
-        
+            
         <div class="post-content">
             <h1 id="ahoy-matey-black-flag-skull-crossbones">Ahoy Matey! 🏴‍☠️</h1>
 <p>My name is <strong>Salvatore Giammanco</strong> and I am a <strong>Software Developer</strong> currently working for 🐙 Kraken Technologies 🐙 as Software Engineer.
@@ -103,8 +104,9 @@ I'm currently learning <strong>Rust</strong> programming language and I love it!
 
         </div>
 
-        
-    </div>
+            
+        </div>
+    
 
     </div>
 
@@ -201,6 +203,32 @@ function initSparkles() {
   });
 }
 </script>
+
+
+<script>
+(function() {
+  var link = document.querySelector('a[href^="mailto:"]');
+  if (!link) return;
+  var email = link.getAttribute('href').replace('mailto:', '');
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    navigator.clipboard.writeText(email).then(function() {
+      var toast = document.createElement('div');
+      toast.className = 'copy-toast';
+      toast.textContent = '✧ copied! ✧';
+      document.body.appendChild(toast);
+      requestAnimationFrame(function() {
+        toast.classList.add('copy-toast--show');
+      });
+      setTimeout(function() {
+        toast.classList.remove('copy-toast--show');
+        setTimeout(function() { toast.remove(); }, 300);
+      }, 1400);
+    });
+  });
+})();
+</script>
+
 
 </body>
 

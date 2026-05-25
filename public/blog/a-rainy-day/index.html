@@ -63,8 +63,9 @@
 
     <div class="content">
         
-    <div class="post">
-        
+    
+        <div class="post">
+            
     <h1 class="post-title"><a href="https://giammanco.me/blog/a-rainy-day/">A rainy day</a></h1>
     <div class="post-meta-inline">
         
@@ -76,7 +77,7 @@
 
     
 
-        
+            
         <div class="post-content">
             <p>Last week and last weekend I really managed to relax, so i thought this week would be a productive one. And indeed it started like that, at work I used the excuse that I had to catch up from the holidays to burn down my entire list of saved messages on slack: it was over 80 threads and it took me slightly more than two days. Two full days of focus on burning down that list. Monday and Tuesday. After that, focus started to fade out until Thursday in which I did not accomplish absolutely anything.  Fucking ADHD, sometimes I wonder if meds would help, but I cannot swallow pills anyway.</p>
 <span id="continue-reading"></span>
@@ -89,8 +90,9 @@ Every year, when August approaches, I start to crave Halloween and a colder weat
 
         </div>
 
-        
-    </div>
+            
+        </div>
+    
 
     </div>
 
@@ -187,6 +189,32 @@ function initSparkles() {
   });
 }
 </script>
+
+
+<script>
+(function() {
+  var link = document.querySelector('a[href^="mailto:"]');
+  if (!link) return;
+  var email = link.getAttribute('href').replace('mailto:', '');
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    navigator.clipboard.writeText(email).then(function() {
+      var toast = document.createElement('div');
+      toast.className = 'copy-toast';
+      toast.textContent = '✧ copied! ✧';
+      document.body.appendChild(toast);
+      requestAnimationFrame(function() {
+        toast.classList.add('copy-toast--show');
+      });
+      setTimeout(function() {
+        toast.classList.remove('copy-toast--show');
+        setTimeout(function() { toast.remove(); }, 300);
+      }, 1400);
+    });
+  });
+})();
+</script>
+
 
 </body>
 

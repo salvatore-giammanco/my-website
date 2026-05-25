@@ -63,8 +63,9 @@
 
     <div class="content">
         
-    <div class="post">
-        
+    
+        <div class="post">
+            
     <h1 class="post-title"><a href="https://giammanco.me/techblog/prevedere-il-futuro/">🇮🇹 Prevedere il futuro 20.000 anni in anticipo</a></h1>
     <div class="post-meta-inline">
         
@@ -76,7 +77,7 @@
 
     
 
-        
+            
         <div class="post-content">
             <h2 id="il-futuro-e-un-po-piu-vicino">Il futuro è un po' più vicino</h2>
 <p>L'uomo è da qualche tempo in grado di fare piccole <strong>previsioni del futuro</strong>. Tutti conoscono le previsioni del tempo, che si fanno via via sempre più accurate. Ma forse non tutti sanno che ormai da una decina d'anni, le tecnologie che ci permettono di fare previsioni si stanno diffondendo ed evolvendo molto velocemente. Se vi dicessi che Amazon utilizza l'<strong>intelligenza artificiale</strong> per prevedere quali prodotti un utente acquisterà? In questo modo viene creato un ordine di spedizione del prodotto verso il centro logistico più vicino alla destinazione, prima ancora che questo sia stato effettivamente ordinato. Le compagnie aeree utilizzino questo tipo di previsioni per vendere più biglietti di quanti posti a sedere ci siano su un aereo, questo fenomeno è noto come overbooking.</p>
@@ -97,8 +98,9 @@
 
         </div>
 
-        
-    </div>
+            
+        </div>
+    
 
     </div>
 
@@ -195,6 +197,32 @@ function initSparkles() {
   });
 }
 </script>
+
+
+<script>
+(function() {
+  var link = document.querySelector('a[href^="mailto:"]');
+  if (!link) return;
+  var email = link.getAttribute('href').replace('mailto:', '');
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    navigator.clipboard.writeText(email).then(function() {
+      var toast = document.createElement('div');
+      toast.className = 'copy-toast';
+      toast.textContent = '✧ copied! ✧';
+      document.body.appendChild(toast);
+      requestAnimationFrame(function() {
+        toast.classList.add('copy-toast--show');
+      });
+      setTimeout(function() {
+        toast.classList.remove('copy-toast--show');
+        setTimeout(function() { toast.remove(); }, 300);
+      }, 1400);
+    });
+  });
+})();
+</script>
+
 
 </body>
 

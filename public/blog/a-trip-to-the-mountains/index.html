@@ -63,8 +63,9 @@
 
     <div class="content">
         
-    <div class="post">
-        
+    
+        <div class="post">
+            
     <h1 class="post-title"><a href="https://giammanco.me/blog/a-trip-to-the-mountains/">A trip to the mountains</a></h1>
     <div class="post-meta-inline">
         
@@ -76,7 +77,7 @@
 
     
 
-        
+            
         <div class="post-content">
             <p>Here we are at the second post of this blog, it's Friday and yes, I almost forgot about it.</p>
 <p>I had a really nice week because, as I anticipated in the previous post, I went on a little trip to the mountains with my wife and our dog. This was our first time camping with the dog, and actually our second time camping together at all. I'm confident to say that the experiment went pretty well, fur in the tent aside.</p>
@@ -115,8 +116,9 @@
 
         </div>
 
-        
-    </div>
+            
+        </div>
+    
 
     </div>
 
@@ -213,6 +215,32 @@ function initSparkles() {
   });
 }
 </script>
+
+
+<script>
+(function() {
+  var link = document.querySelector('a[href^="mailto:"]');
+  if (!link) return;
+  var email = link.getAttribute('href').replace('mailto:', '');
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    navigator.clipboard.writeText(email).then(function() {
+      var toast = document.createElement('div');
+      toast.className = 'copy-toast';
+      toast.textContent = '✧ copied! ✧';
+      document.body.appendChild(toast);
+      requestAnimationFrame(function() {
+        toast.classList.add('copy-toast--show');
+      });
+      setTimeout(function() {
+        toast.classList.remove('copy-toast--show');
+        setTimeout(function() { toast.remove(); }, 300);
+      }, 1400);
+    });
+  });
+})();
+</script>
+
 
 </body>
 

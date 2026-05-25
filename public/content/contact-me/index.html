@@ -63,17 +63,7 @@
 
     <div class="content">
         
-    <div class="post">
-        
-    <h1 class="post-title"><a href="https://giammanco.me/content/contact-me/">Contact me</a></h1>
-    <div class="post-meta-inline">
-        
-    <span class="post-date"></span>
-
-    </div>
-
     
-
         
         <div class="post-content">
             <h1 id="email">Email</h1>
@@ -85,8 +75,7 @@
 
         </div>
 
-        
-    </div>
+    
 
     </div>
 
@@ -183,6 +172,32 @@ function initSparkles() {
   });
 }
 </script>
+
+
+<script>
+(function() {
+  var link = document.querySelector('a[href^="mailto:"]');
+  if (!link) return;
+  var email = link.getAttribute('href').replace('mailto:', '');
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    navigator.clipboard.writeText(email).then(function() {
+      var toast = document.createElement('div');
+      toast.className = 'copy-toast';
+      toast.textContent = '✧ copied! ✧';
+      document.body.appendChild(toast);
+      requestAnimationFrame(function() {
+        toast.classList.add('copy-toast--show');
+      });
+      setTimeout(function() {
+        toast.classList.remove('copy-toast--show');
+        setTimeout(function() { toast.remove(); }, 300);
+      }, 1400);
+    });
+  });
+})();
+</script>
+
 
 </body>
 

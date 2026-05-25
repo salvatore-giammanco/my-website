@@ -63,8 +63,9 @@
 
     <div class="content">
         
-    <div class="post">
-        
+    
+        <div class="post">
+            
     <h1 class="post-title"><a href="https://giammanco.me/techblog/attiny85/">The easiest way to program the ATtiny85 with Arduino</a></h1>
     <div class="post-meta-inline">
         
@@ -76,7 +77,7 @@
 
     
 
-        
+            
         <div class="post-content">
             <h2 id="attiny85">ATtiny85</h2>
 <p>As its name says, it's a tiny ATMega microcontroller. With 6 digital pins, of which 3 are also analogic and 2 are PWM capable, an input voltage range that goes from 2.7 to 5.5V, it's out to become my favourite microcontroller. You can read the full specs on <a rel="external" href="https://www.microchip.com/en-us/product/attiny85">microchip.com</a>.</p>
@@ -112,8 +113,9 @@
 </script>
         </div>
 
-        
-    </div>
+            
+        </div>
+    
 
     </div>
 
@@ -210,6 +212,32 @@ function initSparkles() {
   });
 }
 </script>
+
+
+<script>
+(function() {
+  var link = document.querySelector('a[href^="mailto:"]');
+  if (!link) return;
+  var email = link.getAttribute('href').replace('mailto:', '');
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    navigator.clipboard.writeText(email).then(function() {
+      var toast = document.createElement('div');
+      toast.className = 'copy-toast';
+      toast.textContent = '✧ copied! ✧';
+      document.body.appendChild(toast);
+      requestAnimationFrame(function() {
+        toast.classList.add('copy-toast--show');
+      });
+      setTimeout(function() {
+        toast.classList.remove('copy-toast--show');
+        setTimeout(function() { toast.remove(); }, 300);
+      }, 1400);
+    });
+  });
+})();
+</script>
+
 
 </body>
 
