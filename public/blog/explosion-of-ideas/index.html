@@ -8,9 +8,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <meta name="robots" content="noodp"/>
 
-    <link rel="stylesheet" href="https://giammanco.me/custom.css">
+    <style>
+      #boot-screen {
+        position: fixed; top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: #1a1b26; z-index: 9999;
+        display: flex; align-items: center;
+        justify-content: center; cursor: default;
+      }
+      .boot-line { opacity: 0; }
+      .boot-line.boot--visible { opacity: 1; }
+    </style>
 
-<link rel="icon" type="image/x-icon" href="https://giammanco.me/favicon.png">
+    <link rel="stylesheet" href="/custom.css">
+
+<link rel="icon" type="image/x-icon" href="/favicon.png">
 
     </head>
 
@@ -26,8 +38,7 @@
     <header class="header">
         <div class="header__inner">
             <div class="header__logo">
-                    
-                <a href="https://giammanco.me">
+                <a href="/">
                     <div class="logo">
                       
                             Salvatore Giammanco
@@ -37,20 +48,18 @@
             </div>
 
             
-            <nav class="menu">
+            
+
+        
+
+        <nav class="menu">
             <ul class="menu__inner">
-                <li><a href="https://giammanco.me">home</a></li>
-            
-                <li class="active"><a href="https://giammanco.me/blog">blog</a></li>
-            
-                <li><a href="https://giammanco.me/techblog">tech blog</a></li>
-            
-                <li><a href="https://giammanco.me/techtalks">tech talks</a></li>
-            
-                <li><a href="https://giammanco.me/projects">projects</a></li>
-            
-                <li><a href="https://giammanco.me/content/contact-me">contacts</a></li>
-            
+                <li><a href="/">home</a></li>
+                <li class="active"><a href="/blog">blog</a></li>
+                <li><a href="/techblog">tech blog</a></li>
+                <li><a href="/techtalks">tech talks</a></li>
+                <li><a href="/projects">projects</a></li>
+                <li><a href="/content/contact-me">contacts</a></li>
                 <li><a href="https://github.com/salvatore-giammanco" target="_blank" rel="noopener noreferrer">github</a></li>
             </ul>
         </nav>
